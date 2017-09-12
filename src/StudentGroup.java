@@ -289,9 +289,9 @@ public class StudentGroup implements StudentArrayOperation {
 			{
 				if(students[j].getBirthDate().compareTo(students[j+1].getBirthDate())>0)
 				{
-					Date temp=students[j].getBirthDate();
-					students[j].setBirthDate(students[j+1].getBirthDate());
-					students[j+1].setBirthDate(temp);
+					Student temp=students[j];
+					students[j]=students[j+1];
+					students[j+1]=temp;
 				}
 			}
 	}
