@@ -289,16 +289,34 @@ public class StudentGroup implements StudentArrayOperation {
 			{
 				if(students[j].getBirthDate().compareTo(students[j+1].getBirthDate())>0)
 				{
-					Student temp=students[j];
-					students[j]=students[j+1];
-					students[j+1]=temp;
+					Date temp=students[j].getBirthDate();
+					students[j].setBirthDate(students[j+1].getBirthDate());
+					students[j+1].setBirthDate(temp);
 				}
 			}
 	}
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
-		return null;
+		if(date==null)
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		int count=0;
+		for(int i=0;i<students.length;i++)
+			if(students[i].getBirthDate().compareTo(date)<=0)
+				count++;
+		Student []stud=new Student[count];
+		int index=0;
+		for(int i=0;i<students.length;i++)
+			if(students[i].getBirthDate().compareTo(date)<=0) {
+				stud[index]=students[i];
+				index++;
+			}
+		return stud;
 	}
 
 	@Override
