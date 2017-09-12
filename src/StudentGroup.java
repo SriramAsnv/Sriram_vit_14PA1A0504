@@ -306,16 +306,15 @@ public class StudentGroup implements StudentArrayOperation {
 				e.printStackTrace();
 			}
 		int count=0;
-		for(int i=0;i<students.length;i++)
-			if(students[i].getBirthDate().compareTo(date)<=0)
-				count++;
+		while(students[count].getBirthDate().compareTo(date)<=0)
+			count++;
 		Student []stud=new Student[count];
-		int index=0;
-		for(int i=0;i<students.length;i++)
-			if(students[i].getBirthDate().compareTo(date)<=0) {
-				stud[index]=students[i];
-				index++;
-			}
+		int i=0;
+		while(i<count)
+		{
+			stud[i]=students[i];
+			i++;
+		}
 		return stud;
 	}
 
