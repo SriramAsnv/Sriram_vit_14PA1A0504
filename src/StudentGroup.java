@@ -285,7 +285,7 @@ public class StudentGroup implements StudentArrayOperation {
 	public void bubbleSort() {
 		// Add your implementation here
 		for(int i=0;i<students.length;i++)
-			for(int j=0;j<students.length-i-1;i++)
+			for(int j=0;j<students.length-i-1;j++)
 			{
 				if(students[j].getBirthDate().compareTo(students[j+1].getBirthDate())>0)
 				{
