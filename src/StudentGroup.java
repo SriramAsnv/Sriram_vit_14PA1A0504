@@ -14,7 +14,7 @@ import java.util.Date;
 public class StudentGroup implements StudentArrayOperation {
 
 	private Student[] students;
-	
+	private static final Exception IllegalArgumentException=null;
 	/**
 	 * DO NOT remove or change this constructor, it will be used during task check
 	 * @param length
@@ -29,19 +29,29 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void setStudents(Student[] students) {
+	public void setStudents(Student[] students){
 		// Add your implementation here
 		if(students==null)
-			throw IllegalArgumentException;
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		else
-			this.students=students;		
+			this.students=students;
 	}
 
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
 		if(index<0 || index>students.length-1)
-			throw IllegalArgumentException;
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		return students[index];
 	}
 
@@ -49,7 +59,12 @@ public class StudentGroup implements StudentArrayOperation {
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
 		if(student==null ||(index<0 || index>students.length-1))
-			throw IllegalArgumentException;
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		students[index]=student;
 	}
 
@@ -57,8 +72,13 @@ public class StudentGroup implements StudentArrayOperation {
 	public void addFirst(Student student) {
 		// Add your implementation here
 		if(student==null)
-			throw IllegalArgumentException;
-		Student stud=new Student[students.length+1];
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		Student []stud=new Student[students.length+1];
 		stud[0]=student;
 		for(int i=0;i<students.length;i++)
 		{
@@ -71,8 +91,13 @@ public class StudentGroup implements StudentArrayOperation {
 	public void addLast(Student student) {
 		// Add your implementation here
 		if(student==null)
-			throw IllegalArgumentException;
-		Student stud=new Student[students.length+1];
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		Student []stud=new Student[students.length+1];
 		stud[stud.length-1]=student;
 		for(int i=0;i<students.length;i++)
 		{
@@ -85,15 +110,20 @@ public class StudentGroup implements StudentArrayOperation {
 	public void add(Student student, int index) {
 		// Add your implementation here
 		if(student==null ||(index<0 || index>students.length-1))
-			throw IllegalArgumentException;
-		Student stud=new Student[students.length+1];
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		Student []stud=new Student[students.length+1];
 		int i;
 		for(i=0;i<index;i++)
 		{
 			stud[i]=students[i];
 		}
 		stud[i]=student;
-		while(i<studnets.length) {
+		while(i<students.length) {
 			stud[i+1]=students[i];
 			i++;
 		}
