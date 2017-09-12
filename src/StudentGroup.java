@@ -298,8 +298,13 @@ public class StudentGroup implements StudentArrayOperation {
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
-		// Add your implementation here
-		return null;
+		int count=0;
+		while(students[count].getBirthDate().compareTo(date)<=0)
+			count++;
+		Student []stud=new Student[count];
+		for(int i=0;i<count;i++)
+			stud[i]=students[i];
+		return stud;
 	}
 
 	@Override
