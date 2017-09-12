@@ -206,21 +206,79 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void removeFromIndex(int index) {
 		// Add your implementation here
+		if(index<0 || index>students.length-1)
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		Student [] stud=new Student[index+1];
+		for(int i=0;i<=index;i++)
+			stud[i]=students[i];
+		students=stud;
 	}
 
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
+		if(student==null)
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		int count=0;
+		while(student!=students[count])
+			count++;
+		Student [] stud=new Student[count+1];
+		for(int i=0;i<count+1;i++)
+			stud[i]=students[i];
+		students=stud;
 	}
 
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
+		if(index<0 || index>students.length-1)
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		Student [] stud=new Student[students.length-index];
+		int temp=0;
+		for(int i=index;i<students.length;i++)
+		{
+			stud[temp]=students[i];
+			temp=temp+1;
+		}
+		students=stud;
 	}
 
 	@Override
 	public void removeToElement(Student student) {
-		// Add your implementation here
+		if(student==null)
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		int index=0;
+		while(students[index]!=student)
+			index++;
+		index++;
+		int temp=0;
+		Student [] stud=new Student[students.length-index];
+		for(int i=index;i<students.length;i++)
+		{
+			stud[temp]=students[i];
+			temp=temp+1;
+		}
+		students=stud;
 	}
 
 	@Override
