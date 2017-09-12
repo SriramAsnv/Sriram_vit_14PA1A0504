@@ -135,12 +135,72 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
+		if(index<0 || index>students.length-1)
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		Student []stud=new Student[students.length-1];
+		int i;
+		for(i=0;i<index;i++)
+		{
+			stud[i]=students[i];
+		}
+		for(i=index+1;i<students.length;i++)
+		{
+			stud[i-1]=students[i];
+		}
+		students=stud;
 		
 	}
 
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
+		if(student==null)
+			try {
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		int flag=0,i;
+		Student [] stud=new Student[students.length-1];
+		for(i=0;i<students.length;i++)
+		{
+			if(student==students[i])
+			{
+				flag=1;
+				break;
+			}
+			else
+				stud[i]=students[i];
+		}
+		if(flag==0)
+			try {
+				throw IllegalArgumentException("Student not exist");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		else
+		{
+			i++;
+			while(i<students.length)
+			{
+				stud[i-1]=students[i];
+				i++;
+			}
+			students=stud;
+		}
+	}
+
+	private Exception IllegalArgumentException(String string) {
+		// TODO Auto-generated method stub
+		System.out.println(string);
+		return null;
 	}
 
 	@Override
